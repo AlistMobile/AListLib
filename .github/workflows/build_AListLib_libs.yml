@@ -113,7 +113,7 @@ jobs:
           GO111MODULE: on
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
       - name: build android aar
-        run: gomobile bind -target=android  -o mobile.aar ./session
+        run: gomobile bind -target=android  -o mobile.aar ./libs/mobile
         env:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
       - uses: actions/upload-artifact@v4
@@ -123,7 +123,7 @@ jobs:
       - name: Replace mod
         run: go mod edit -replace github.com/rclone/rclone@v1.67.0=github.com/AlistMobile/rclone@v1.67.2
       - name: build ios xcframework
-        run: gomobile bind -ldflags '-w -s -extldflags "-lresolve"' --target=ios,macos,iossimulator -o OpenIoTHubMobile.xcframework ./session
+        run: gomobile bind -ldflags '-w -s -extldflags "-lresolve"' --target=ios,macos,iossimulator -o OpenIoTHubMobile.xcframework ./libs/mobile
       - run: zip -r OpenIoTHubMobile.xcframework.zip OpenIoTHubMobile.xcframework
       - uses: actions/upload-artifact@v4
         with:

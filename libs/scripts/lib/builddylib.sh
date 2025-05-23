@@ -1,6 +1,8 @@
 #for build MacOS/iOS dylib
 echo "building MacOS/iOS dylib"
 #Mac
+go mod tidy
+go mod download
 # shellcheck disable=SC2155
 export CFLAGS="-mmacosx-version-min=10.9 -isysroot "$(xcrun -sdk macosx --show-sdk-path)
 # shellcheck disable=SC2155

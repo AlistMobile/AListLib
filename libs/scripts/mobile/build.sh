@@ -1,8 +1,8 @@
 ./clean.sh
 export GO111MODULE="off"
-gomobile bind -target=android -o=./mobile.aar github.com/OpenIoTHub/OpenIoTHubService/session
+gomobile bind -target=android -o=./mobile.aar ./libs/mobile
 export MACOSX_DEPLOYMENT_TARGET=10.14
-gomobile bind -ldflags '-w -s -extldflags "-lresolve"' --target=ios,macos,iossimulator -o OpenIoTHubMobile.xcframework github.com/OpenIoTHub/OpenIoTHubService/session
+gomobile bind -ldflags '-w -s -extldflags "-lresolve"' --target=ios,macos,iossimulator -o OpenIoTHubMobile.xcframework ./libs/mobile
 #https://gitee.com/OpenIoThub/mobile-lib-podspec
 #git tag -a 0.0.1 -m '0.0.1'
 #git pus --tags
