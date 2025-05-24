@@ -2,7 +2,7 @@ mvn deploy:deploy-file \
 -Dmaven.test.skip=true -Djacoco.skip=true -PCI \
 -Dfile=./mobile.aar \
 -DgroupId=com.iotserv.alist \
--DartifactId=OpenIoTHub \
+-DartifactId=AListMobile \
 -Dversion=1.0.0 \
 -Dpackaging=aar \
 -DrepositoryId=github \

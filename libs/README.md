@@ -1,4 +1,4 @@
-# OpenIoTHubService
+# AListMobileService
 ```shell
 #build and push mobile lib
 #install gomobile(at system cli)
@@ -13,20 +13,20 @@ gomobile bind -target=android -o=./build/mobile.aar ./libs/mobile
 export MACOSX_DEPLOYMENT_TARGET=10.6
 export IPHONEOS_DEPLOYMENT_TARGET=9.0
 go clean -cache
-gomobile bind -ldflags '-w -s -extldflags "-lresolve"' --target=ios,macos,iossimulator -o ./build/OpenIoTHubMobile.xcframework ./libs/mobile
+gomobile bind -ldflags '-w -s -extldflags "-lresolve"' --target=ios,macos,iossimulator -o ./build/AListMobile.xcframework ./libs/mobile
 
 #push ios,macos libs
-#https://gitee.com/OpenIoThub/mobile-lib-podspec
+#https://gitee.com/AListMobile/mobile-lib-podspec
 #git tag -a 0.0.1 -m '0.0.1'
 #git pus --tags
-#pod trunk push ./OpenIoTHubMobile.podspec --skip-import-validation --allow-warnings
+#pod trunk push ./AListMobile.podspec --skip-import-validation --allow-warnings
 
 #
 #modify version in pom
 #push android lib
 mvn gpg:sign-and-deploy-file -DrepositoryId=ossrh -Dfile=mobile.aar -DpomFile=mobile.pom -Durl=https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/
 # https://s01.oss.sonatype.org/
-mvn deploy:deploy-file -Dfile=mobile.aar -DgroupId=cloud.iothub -DartifactId=mobile -Dversion=0.0.1 -Dpackaging=aar -DrepositoryId=github -Durl=https://maven.pkg.github.com/OpenIoTHub/gateway-go
+mvn deploy:deploy-file -Dfile=mobile.aar -DgroupId=cloud.iothub -DartifactId=mobile -Dversion=0.0.1 -Dpackaging=aar -DrepositoryId=github -Durl=https://maven.pkg.github.com/AListMobile/gateway-go
 ```
 ```shell
 #for build windows dll
