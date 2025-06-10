@@ -34,12 +34,13 @@ func (e EventEntity) OnProcessExit(code int) {
 
 func Run() {
 	log.Println("Start service")
-	SetConfigData("/data/user/0/cloud.iothub.apps.alistweb.alist_web/app_flutter")
-	err := Init(eventEntity, callback)
-	if err != nil {
-		log.Println(err.Error())
-	}
-	Start()
+	//SetConfigData("/data/user/0/cloud.iothub.apps.alistweb.alistweb/app_flutter")
+	//err := Init(eventEntity, callback)
+	//if err != nil {
+	//	log.Println(err.Error())
+	//}
+	//Start()
+	RunAPIServer()
 	wg := sync.WaitGroup{}
 	wg.Add(1)
 	wg.Wait()
